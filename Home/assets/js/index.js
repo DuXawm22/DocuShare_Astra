@@ -10,6 +10,12 @@ $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
     $('.dropdown-submenu .show').removeClass("show");
   });
 
-
   return false;
+});
+
+$(function () {
+  $(document).scroll(function () {
+    var $nav = $(".navbar");
+    $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+  });
 });
