@@ -15,12 +15,16 @@ body {
 }
 
 .navbar.scrolled {
-  background-color: red !important;
+  background-color: white !important;
   transition: background-color 200ms linear;
 }
 
 .navbar.scrolled .nav-link {
-  color: red;
+  color: black;
+}
+
+.navbar.scrolled .nav-link:hover {
+  color: #7c0041;
 }
 
 .logo {
@@ -57,6 +61,7 @@ body {
     outline: none;
     width: auto;
     background-color: #f05f24;
+    color: white;
 }
 
 .btn:hover {
