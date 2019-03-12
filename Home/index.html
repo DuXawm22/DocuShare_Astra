@@ -12,23 +12,25 @@
 
 <body id="page-top">
   <!--NAVBAR-->
-  <div class="top-bar top-bar-colored top-bar-transparent">
+  <div class="top-bar">
     <nav class="navbar navbar-expand-lg">
       <a href="#" class="active"><img class="logo" src="assets/images/logo_astragraphia.png"></a>
       <!--Change to navbar toggler-->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="true" aria-label="Toggle navigation">  
+        <span class="line"></span> 
+        <span class="line"></span> 
+        <span class="line" style="margin-bottom: 0;"></span>
       </button>
 
-      <!--Search-->
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-      </form>
-
-      <div id="navbar-separation"></div>
-
       <div class="collapse navbar-collapse" id="navbarToggler">
+        <!--Search-->
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+
+        <div id="navbar-separation"></div>
+      
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item">
             <a class="nav-link" href="#">Home</a>
@@ -41,22 +43,11 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <li><a class="dropdown-item" href="#">Action</a></li>
               <li><a class="dropdown-item" href="#">Another action</a></li>
+              <!--Sub Menu-->
               <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Submenu</a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="#">Submenu action</a></li>
-                  <li><a class="dropdown-item" href="#">Another submenu action</a></li>
-                  <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Subsubmenu</a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>
-                      <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>
-                    </ul>
-                  </li>
-                  <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Second subsubmenu</a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>
-                      <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>
-                    </ul>
-                  </li>
+                  <li><a class="dropdown-item" href="#">Another</a></li>
                 </ul>
               </li>
             </ul>
@@ -79,13 +70,13 @@
       <!--Images-->
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="d-block w-100" src="assets/images/1.jpg" alt="First slide">
+          <img class="d-block" src="assets/images/1.jpg" alt="First slide">
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100" src="assets/images/1.jpg" alt="Second slide">
+          <img class="d-block" src="assets/images/1.jpg" alt="Second slide">
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100" src="assets/images/1.jpg" alt="Third slide">
+          <img class="d-block" src="assets/images/1.jpg" alt="Third slide">
         </div>
       </div>
     </div>
@@ -137,8 +128,7 @@
     </div>
   </div>
 
-  
-<!-- Footer -->
+  <!-- FOOTER -->
   <section id="footer">
     <div class="container">
       <div class="row text-center text-xs-center text-sm-left text-md-left">
@@ -174,52 +164,17 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
-          <ul class="list-unstyled list-inline social text-center">
-            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
-            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
-            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
-            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a></li>
-            <li class="list-inline-item"><a href="javascript:void();" target="_blank"><i class="fa fa-envelope"></i></a></li>
-          </ul>
-        </div>
-        </hr>
-      </div>  
-      <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-          <p><u><a href="https://www.nationaltransaction.com/">Astragraphia Tbk. Head Office</a></u> is a Registered branch of Astra.</p>
-          <p class="h6">2019 &copy<a class="text-green ml-2" href="https://www.astragraphia.co.id" target="_blank">Astragraphia</a> All rights Reversed.</p>
+          <p><u><a href="https://www.nationaltransaction.com/">National Transaction Corporation</a></u> is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis, MN]</p>
+          <p class="h6">&copy All right Reversed.<a class="text-green ml-2" href="https://www.sunlimetech.com" target="_blank">Sunlimetech</a></p>
         </div>
         </hr>
       </div>  
     </div>
   </section>
-  <!-- ./Footer -->
 
   <script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
   <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="assets/js/index.js"></script>
 </body>
 </html>
-
-      <!--
-      <tr>
-        <td>
-          <form name="Search" action="http://docushare.astragraphia.local:8080/docushare/dsweb/ApplySimpleSearch" method="post"><input type="hidden" value="-14fqo344rdnkeemzoax3a" name="tran_token">
-            <span style="WHITE-SPACE: nowrap"><a class="crumblinks" title="Click to view properties " href="http://docushare.astragraphia.local:8080/docushare/dsweb/Services/User-1" target="_top"><b>Guest</b></a> &nbsp; </span>
-            <span style="WHITE-SPACE: nowrap"><iframe allowtransparency="" scrolling="no" width="450" id="idContent" height="20" src="http://xww.idn.xerox.com/ippidp/Ultah.asp" frameborder="0"></iframe></span>
-          </form>
-        </td>
-
-        <td align="right">
-          <span style="VERTICAL-ALIGN: middle"><b>Search:</b></span>
-          <input class="subheader_formtext" style="VERTICAL-ALIGN: middle" size="18" name="value1"> <input type="hidden" value="Site" name="D1"> 
-          <input class="subheader_formtext" style="VERTICAL-ALIGN: middle" type="submit" value="Go" border="0" name="goButton"> 
-          <span id="searchOptionsHide" style="DISPLAY: none">
-            <img style="VERTICAL-ALIGN: middle" onclick="showSearchOptions('searchoptions_tr'); return(false);" alt="Click to hide search options" hspace="0" src="HomePage_files/submenu_arrow_collapse.gif" width="9" height="9"> </span>
-          <span id="searchOptionsShow"><img style="VERTICAL-ALIGN: middle" onclick="showSearchOptions('searchoptions_tr'); return(false);" alt="Click to show search options" hspace="0" src="HomePage_files/submenu_arrow_expand.gif" width="9" height="9"> </span>
-          <span style="VERTICAL-ALIGN: middle"><a class="crumblinks" title="Click for advanced search" href="http://docushare.astragraphia.local:8080/docushare/dsweb/SearchForm/Site" target="_parent">Advanced</a></span>
-          <img height="3" src="HomePage_files/spacer.gif" width="5"> 
-        </td>
-      </tr>
-      -->
