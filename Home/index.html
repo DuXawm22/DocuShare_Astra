@@ -26,7 +26,7 @@
         <!--Search-->
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <button class="btn btn-outline-success my-2 my-sm-0" id="searchBtn" type="submit">Search</button>
         </form>
 
         <div id="navbar-separation"></div>
@@ -35,11 +35,58 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown link</a>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Application</a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="http://ism.astragraphia.local/">ISM</a></li>
+              <li><a class="dropdown-item" href="http://app1.astragraphia.local/PCS/">Planning Cycle System</a></li>
+              <!-- <A href="http://xww.idn.xerox.com/espcs/espcs.asp">e-SPCS</A> --> 
+              <li><a class="dropdown-item" href="http://app1.astragraphia.local/pss/pss.asp">PSS Online</a></li>
+              <li><a class="dropdown-item" href="http://ilog.co.id/">iLog</a></li>
+              <li><a class="dropdown-item" href="http://app1.astragraphia.local/isense/">iSense</a></li>
+              <li><a class="dropdown-item" href="http://starfish.astragraphia.local/">Starfish</a></li>
+              <li><a class="dropdown-item" href="http://app1.astragraphia.local/helpdesk/home.asp">Solution Online</a></li>
+              <li><a class="dropdown-item" href="http://app1.astragraphia.local/ippidp/home.asp">IPP &amp; IDP Online</a></li> 
+              <li><a class="dropdown-item" href="http://app1.astragraphia.local/Training/home.asp">Training Request Online</a></li>
+              <li><a class="dropdown-item" href="http://app1.astragraphia.local/CS/">CARS</a></li>
+              <li><a class="dropdown-item" href="http://app1.astragraphia.local/CIM/">Customer Info Media</a></li>
+              <li><a class="dropdown-item" href="http://app1.astragraphia.local/pmk/">KKK</a></li>
+              <li><a class="dropdown-item" href="http://app1.astragraphia.local/pmko/">PMK Online</a></li>
+              <li><a class="dropdown-item" href="http://app1.astragraphia.local/AOL/Home.asp">Monitoring KKK</a></li>
+              <li><a class="dropdown-item" href="http://app1.astragraphia.local/AOL/Overtime.asp">Over Time Online</a></li>
+              <li><a class="dropdown-item" href="http://app1.astragraphia.local/obat/obatnew.asp">Medical Online</a></li>
+              <li><a class="dropdown-item" href="http://app1.astragraphia.local/err/logon.asp">e-Room Reservation</a></li>
+              <li><a class="dropdown-item" href="http://app1.astragraphia.local/spd/">SPD</a></li>
+              <li><a class="dropdown-item" href="http://app1.astragraphia.local/Library/">Library Online</a></li>
+              <li><a class="dropdown-item" href="http://app1.astragraphia.local/library/asset.asp">Peminjaman Aset Training</a></li>
+              <li><a class="dropdown-item" href="http://blogsphere/documentsolution/QIWebAdmin/">Astragraphia QI Portal</a></li>
+              <li><a class="dropdown-item" href="http://app1.astragraphia.local/SMS/">SMS Web Monitor</a></li>
+              <li><a class="dropdown-item" href="https://webmail.astragraphia.local/OWA">AG Webmail</a></li>
+              <!-- <A href="http://xww.idn.xerox.com/cprol/">C.P.R.O.L</A> -->
+              <li><a class="dropdown-item" href="http://10.21.1.105/agds">Document Imaging System</a></li>
+              <li><a class="dropdown-item" href="http://blogsphere/documentsolution/">AG Blogsphere</a></li>
+              <!--<A href="http://xww.idn.xerox.com/mesinbackup/">Mesin Backup Project</A>-->
+              <!--<A href="http://app1.astragraphia.local/dstc/">DSTC Resources Request</A>-->
+              <li><a class="dropdown-item" href="http://app1.astragraphia.local/QIBoard/">QI Board</a></li>
+              <li><a class="dropdown-item" href="http://app1.astragraphia.local/qmos/qmos.asp">Building Service By Request Online</a></li>
+              <li><a class="dropdown-item" href="http://app1.astragraphia.local/DocuTend/Default.aspx">DocuTend System</a></li>
+              <li><a class="dropdown-item" href="http://agdashboard.astragraphia.local/microstrategy/asp/Main.aspx">Dashboard Management</a></li>
+              <li><a class="dropdown-item" href="http://rolis.astragraphia.co.id/">ROLIS</a></li>
+              <li><a class="dropdown-item" href="http://emas.astragraphia.co.id/">EMAS</a></li>
+              <li><a class="dropdown-item" href="http://app1.astragraphia.local/ksk">Kotak Saran Karyawan</a></li>
+              <li><a class="dropdown-item" href="http://app1.astragraphia.local/bpjs">BPJS Kesehatan</a></li>
+              <li><a class="dropdown-item" href="http://hcm.astragraphia.local/">HCM</a></li>
+              <li><a class="dropdown-item" href="http://app1.astragraphia.local/bpjstk">BPJS Tenaga Kerja</a></li>
+              <!--Sub Menu-->
+              <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Submenu</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Submenu action</a></li>
+                  <li><a class="dropdown-item" href="#">Another</a></li>
+                </ul>
+              </li>
+          </ul>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shortcut</a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <li><a class="dropdown-item" href="#">Action</a></li>
               <li><a class="dropdown-item" href="#">Another action</a></li>
@@ -51,6 +98,37 @@
                 </ul>
               </li>
             </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Intranet</a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <!--Sub Menu-->
+              <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Submenu</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Submenu action</a></li>
+                  <li><a class="dropdown-item" href="#">Another</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Internet</a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <!--Sub Menu-->
+              <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Submenu</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Submenu action</a></li>
+                  <li><a class="dropdown-item" href="#">Another</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">My Account</a>
           </li>
         </ul>
       </div>

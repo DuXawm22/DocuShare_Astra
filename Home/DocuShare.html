@@ -1,0 +1,698 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0025)http://xww.idn.xerox.com/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<!-- <bgsound src="HariMerdeka.mid" loop=infinite> -->
+	
+	<title>DocuShare</title>
+
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
+<meta http-equiv="PRAGMA" content="NO-CACHE">
+<meta http-equiv="EXPIRES" content="0"><link href="http://xww.idn.xerox.com/docushare/favicon.ico" rel="SHORTCUT ICON"><link href="./DocuShare_files/docushare.css" type="text/css" rel="stylesheet">
+<style>.anylinkcss {
+	BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; Z-INDEX: 100; VISIBILITY: hidden; FONT: 10px/12px Verdana; BORDER-LEFT: black 1px solid; WIDTH: 205px; BORDER-BOTTOM: black 0px solid; POSITION: absolute; BACKGROUND-COLOR: #e9fecb
+}
+.anylinkcss A {
+	PADDING-RIGHT: 0px; DISPLAY: block; PADDING-LEFT: 0px; FONT-WEIGHT: bold; PADDING-BOTTOM: 1px; WIDTH: 100%; TEXT-INDENT: 5px; PADDING-TOP: 1px; BORDER-BOTTOM: black 1px solid; TEXT-DECORATION: none
+}
+.anylinkcss A:hover {
+	COLOR: white; BACKGROUND-COLOR: blue
+}
+</style>
+
+<script language="javascript">
+           
+
+           var disappeardelay=250  //menu disappear speed onMouseout (in miliseconds)
+           var enableanchorlink=0 //Enable or disable the anchor link when clicked on? (1=e, 0=d)
+           var hidemenu_onclick=1 //hide menu when user clicks within menu? (1=yes, 0=no)
+
+/////No further editting needed
+
+var ie5=document.all
+var ns6=document.getElementById&&!document.all
+
+function getposOffset(what, offsettype){
+var totaloffset=(offsettype=="left")? what.offsetLeft : what.offsetTop;
+var parentEl=what.offsetParent;
+while (parentEl!=null){
+totaloffset=(offsettype=="left")? totaloffset+parentEl.offsetLeft : totaloffset+parentEl.offsetTop;
+parentEl=parentEl.offsetParent;
+}
+return totaloffset;
+}
+
+function showhide(obj, e, visible, hidden){
+if (ie5||ns6)
+dropmenuobj.style.left=dropmenuobj.style.top=-500
+if (e.type=="click" && obj.visibility==hidden || e.type=="mouseover")
+obj.visibility=visible
+else if (e.type=="click")
+obj.visibility=hidden
+}
+
+function iecompattest(){
+return (document.compatMode && document.compatMode!="BackCompat")? document.documentElement : document.body
+}
+
+function clearbrowseredge(obj, whichedge){
+var edgeoffset=0
+if (whichedge=="rightedge"){
+var windowedge=ie5 && !window.opera? iecompattest().scrollLeft+iecompattest().clientWidth-15 : window.pageXOffset+window.innerWidth-15
+dropmenuobj.contentmeasure=dropmenuobj.offsetWidth
+if (windowedge-dropmenuobj.x < dropmenuobj.contentmeasure)
+edgeoffset=dropmenuobj.contentmeasure-obj.offsetWidth
+}
+else{
+var topedge=ie5 && !window.opera? iecompattest().scrollTop : window.pageYOffset
+var windowedge=ie5 && !window.opera? iecompattest().scrollTop+iecompattest().clientHeight-15 : window.pageYOffset+window.innerHeight-18
+dropmenuobj.contentmeasure=dropmenuobj.offsetHeight
+if (windowedge-dropmenuobj.y < dropmenuobj.contentmeasure){ //move up?
+edgeoffset=dropmenuobj.contentmeasure+obj.offsetHeight
+if ((dropmenuobj.y-topedge)<dropmenuobj.contentmeasure) //up no good either?
+edgeoffset=dropmenuobj.y+obj.offsetHeight-topedge
+}
+}
+return edgeoffset
+}
+
+function dropdownmenu(obj, e, dropmenuID){
+if (window.event) event.cancelBubble=true
+else if (e.stopPropagation) e.stopPropagation()
+if (typeof dropmenuobj!="undefined") //hide previous menu
+dropmenuobj.style.visibility="hidden"
+clearhidemenu()
+if (ie5||ns6){
+obj.onmouseout=delayhidemenu
+dropmenuobj=document.getElementById(dropmenuID)
+if (hidemenu_onclick) dropmenuobj.onclick=function(){dropmenuobj.style.visibility='hidden'}
+dropmenuobj.onmouseover=clearhidemenu
+dropmenuobj.onmouseout=ie5? function(){ dynamichide(event)} : function(event){ dynamichide(event)}
+showhide(dropmenuobj.style, e, "visible", "hidden")
+dropmenuobj.x=getposOffset(obj, "left")
+dropmenuobj.y=getposOffset(obj, "top")
+dropmenuobj.style.left=dropmenuobj.x-clearbrowseredge(obj, "rightedge")+"px"
+dropmenuobj.style.top=dropmenuobj.y-clearbrowseredge(obj, "bottomedge")+obj.offsetHeight+"px"
+}
+return clickreturnvalue()
+}
+
+function clickreturnvalue(){
+if ((ie5||ns6) && !enableanchorlink) return false
+else return true
+}
+
+function contains_ns6(a, b) {
+while (b.parentNode)
+if ((b = b.parentNode) == a)
+return true;
+return false;
+}
+
+function dynamichide(e){
+if (ie5&&!dropmenuobj.contains(e.toElement))
+delayhidemenu()
+else if (ns6&&e.currentTarget!= e.relatedTarget&& !contains_ns6(e.currentTarget, e.relatedTarget))
+delayhidemenu()
+}
+
+function delayhidemenu(){
+delayhide=setTimeout("dropmenuobj.style.visibility='hidden'",disappeardelay)
+}
+
+function clearhidemenu(){
+if (typeof delayhide!="undefined")
+clearTimeout(delayhide)
+}
+            
+           
+	   var location_base = '/docushare/';
+	   var openedBcImg = new Image();
+	   openedBcImg.src = location_base + "images/submenu_arrow_collapse.gif";
+	   var closedBcImg = new Image();
+	   closedBcImg.src = location_base + "images/submenu_arrow_expand.gif";
+
+	   // Create an HTML object based on the argument.  Check the 'src' property
+	   // to see if the image currently displayed is the closed breadcrumb image.  Use the
+	   // 'indexOf()' function because both IE and Netscape 6 return a string
+	   // containing the absolute path to the image for the 'src' attribute.
+	   function swapImage(img) {
+	      var objImg = document.getElementById(img);
+	      if(objImg.src.indexOf('submenu_arrow_expand.gif')>-1) {
+		 objImg.src = openedBcImg.src;
+	      }
+	      else {
+		 objImg.src = closedBcImg.src;
+	      }
+	   }
+
+	   function showHide(id){
+	      if (document.getElementById){
+		var obj = document.getElementById(id);
+		if (obj.style.display == "none"){
+		    obj.style.display = "";
+		} else {
+		    obj.style.display = "none";
+		}
+	      }
+	   }
+
+	   function showDiv(pass) {
+	      var divs = document.getElementsByTagName('div');
+	      //alert("divs = " + divs.length);
+	      for (i=0; i<divs.length; i++) {
+		//if (divs[i].id.match(pass)) {
+		if (divs[i].id.indexOf(pass, 0) != -1) {
+		   if (document.getElementById) {
+		      if (divs[i].style.display == "none"){
+		         divs[i].style.display = "";
+		      } else {
+		         divs[i].style.display = "none";
+		      }
+		   }
+		}
+	      }
+	   }
+
+	   function showSpan(pass) {
+	      var spans = document.getElementsByTagName('span');
+	      //alert("spans = " + spans.length);
+	      for (i=0; i<spans.length; i++) {
+		if (spans[i].id.indexOf(pass, 0) != -1) {
+		   if (document.getElementById) {
+		      if (spans[i].style.display == "none"){
+		         spans[i].style.display = "";
+		      } else {
+		         spans[i].style.display = "none";
+		      }
+		   }
+		}
+	      }
+	   }
+
+           function showSearchOptions(optionregion){
+               expandarrow = document.getElementById('searchOptionsShow');
+               collapsearrow = document.getElementById('searchOptionsHide');
+               hiddenoptiondiv = document.getElementById(optionregion);
+                   if(hiddenoptiondiv.style.display == "none"){
+                        hiddenoptiondiv.style.display = "";
+                        expandarrow.style.display = "none";
+                        collapsearrow.style.display = "";
+                   } else {
+                        hiddenoptiondiv.style.display = "none"
+                        expandarrow.style.display = "";
+                        collapsearrow.style.display = "none";
+                   }
+               }
+
+	       function openUrlTextWindow(url) {
+		if (typeof(popupWin) != "object"){
+			popupWin = window.open(url, "urlWindow", "toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes");
+		} else {
+			if (!popupWin.closed){
+				popupWin.location.href = url;
+			} else {
+				popupWin = window.open(url, "urlWindow", "toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes");
+			}
+		}
+		popupWin.focus();
+	      }
+
+
+	     function openHelpTextWindow(url) {
+		var newUrl = url;
+		var help_window=window.open(newUrl, "help_window", "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=350,height=250");
+		help_window.onClose = window.focus();
+		help_window.focus();
+	     }
+           </script>
+<link title="RSS" href="http://xww.idn.xerox.com/docushare/dsweb/ApplyListNew/Site?vdf_results=RSS10&amp;days=7&amp;sort_key0=date" type="application/rss+xml" rel="alternate">
+<meta content="MSHTML 6.00.2800.1505" name="GENERATOR"></head>
+<body bgcolor="#ffffff" background="./DocuShare_files/dsweb">
+
+	
+<table cellspacing="0" cellpadding="0" width="800" align="center" background="./DocuShare_files/bg.gif" border="0">
+  <tbody>
+  <tr>
+    <td valign="bottom" background="./DocuShare_files/bg_left.gif"><img height="16" alt="" src="./DocuShare_files/bg_left.gif" width="17" border="0"></td>
+    <td>
+      <div class="anylinkcss" id="menuapplication" style="WIDTH: 200px; BACKGROUND-COLOR: #eeeeee"><font color="#eeeeee">
+      <!-- <A href="http://salesstream.astragraphia.local">SalesStream</A>  --> </font>
+	  <a href="http://ism.astragraphia.local/">ISM</a> 
+	  <a href="http://app1.astragraphia.local/PCS/">Planning Cycle System</a> 
+      <!-- <A href="http://xww.idn.xerox.com/espcs/espcs.asp">e-SPCS</A> --> 
+      <a href="http://app1.astragraphia.local/pss/pss.asp">PSS Online</a> 
+      <a href="http://ilog.co.id/">iLog</a> 
+      <a href="http://app1.astragraphia.local/isense/">iSense</a>
+      <a href="http://starfish.astragraphia.local/">Starfish</a> 
+       
+      <a href="http://app1.astragraphia.local/helpdesk/home.asp">Solution Online</a> 
+      <a href="http://app1.astragraphia.local/ippidp/home.asp">IPP &amp; IDP Online</a> 
+      <a href="http://app1.astragraphia.local/Training/home.asp">Training Request Online</a> 
+      <a href="http://app1.astragraphia.local/CS/">CARS</a> 
+      <a href="http://app1.astragraphia.local/CIM/">Customer Info Media</a> 
+      <a href="http://app1.astragraphia.local/pmk/">KKK</a> 
+	  <a href="http://app1.astragraphia.local/pmko/">PMK Online</a> 
+      <a href="http://app1.astragraphia.local/AOL/Home.asp">Monitoring KKK</a> 
+      <a href="http://app1.astragraphia.local/AOL/Overtime.asp">Over Time Online</a> 
+      <a href="http://app1.astragraphia.local/obat/obatnew.asp">Medical Online</a>
+      <a href="http://app1.astragraphia.local/err/logon.asp">e-Room Reservation</a>
+      
+      <a href="http://app1.astragraphia.local/spd/">SPD</a>
+
+      <a href="http://app1.astragraphia.local/Library/">Library Online</a> 
+	  <a href="http://app1.astragraphia.local/library/asset.asp">Peminjaman Aset Training</a> 
+      <a href="http://blogsphere/documentsolution/QIWebAdmin/">Astragraphia QI Portal</a> 
+      <a href="http://app1.astragraphia.local/SMS/">SMS Web Monitor</a> 
+       <!--<A href="http://app1.astragraphia.local/SMSMKT/Home.asp">SMS Gateway</A> 
+	  <A href="http://app1.astragraphia.local/SMSPCB/Home.asp">SMS PCB CRM</A>--> 
+      <!-- <A href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-12560">HUT 31 AG</A> 
+      
+       <A 
+      href="http://xww.idn.xerox.com/dscgi/ds.py/sview/Collection-942">Docushare 
+      2.2 (ReadOnly)</A> -->
+       
+      <!--<A href="http://xww.idn.xerox.com/webmail">AG WebSharing (BETA)</A>-->
+      <a href="https://webmail.astragraphia.local/OWA">AG Webmail</a>
+      <!-- <A href="http://xww.idn.xerox.com/cprol/">C.P.R.O.L</A> -->
+      <a href="http://10.21.1.105/agds">Document Imaging System</a>
+      <a href="http://blogsphere/documentsolution/">AG Blogsphere</a>
+	    <!--<A href="http://xww.idn.xerox.com/mesinbackup/">Mesin Backup Project</A>-->
+	    <!--<A href="http://app1.astragraphia.local/dstc/">DSTC Resources Request</A>-->
+	    <a href="http://app1.astragraphia.local/QIBoard/">QI Board</a>
+	    <a href="http://app1.astragraphia.local/qmos/qmos.asp">Building Service By Request Online</a>
+	    <a href="http://app1.astragraphia.local/DocuTend/Default.aspx">DocuTend System</a>
+	    <a href="http://agdashboard.astragraphia.local/microstrategy/asp/Main.aspx">Dashboard Management</a>
+	    <a href="http://rolis.astragraphia.co.id/">ROLIS</a>
+	    <a href="http://emas.astragraphia.co.id/">EMAS</a>
+		<a href="http://app1.astragraphia.local/ksk">Kotak Saran Karyawan</a>
+	     <a href="http://app1.astragraphia.local/bpjs">BPJS Kesehatan</a> 
+	  <a href="http://hcm.astragraphia.local/">HCM</a> 
+	  <a href="http://app1.astragraphia.local/bpjstk">BPJS Tenaga Kerja</a> 
+      </div>
+      <div class="anylinkcss" id="menushortcut" style="WIDTH: 200px; BACKGROUND-COLOR: #eeeeee">
+      <a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-95">SOP at Astragraphia</a>
+	  <a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-32764">AXI Document Center</a>
+	  
+      <a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-4989">ISO 
+      9001</a> <a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-4988">ISO 
+      14001</a> <a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-4951">EHS-LK3</a> 
+      <a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-32780">User Manual</a> <a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-98">Download</a>
+      <!-- <a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-10842">VSS</a> -->
+	  <a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-12">EDS Library</a>
+      <a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-20659">Form IAS</a> 
+	  <a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-4585">MarComm Update</a> 
+      <a href="http://app1.astragraphia.local/KPI/">Kaplan</a> 
+	  
+      </div>
+      <div class="anylinkcss" id="menuintranet" style="WIDTH: 200px; BACKGROUND-COLOR: #eeeeee"><a href="http://owa/">Outlook Web Access</a> 
+	  <!--
+	  <A 
+      href="http://intranet.ssc.fxhq.fujixerox.co.jp/eng/">FX DocuSquare 
+      Portal</A> <A 
+      href="http://xww.internal.xerox.com/Insight/customindex/webboard.cfm?SID=2">Xerox 
+      WebBoard</A> <A href="http://xww.fxap.sgp.xerox.com/index.jsp">FX IBG 
+      Portal</A> <A 
+      href="http://docushare.sgp.xerox.com/docushare/dsweb/HomePage">IBG 
+      DocuShare</A>
+      <A href="http://docubase.ssc.fxhq.fujixerox.co.jp/pm/eng/index.html">Pres. Arima's Homepage</A>
+      <A href="http://docubase.kdc.fujixerox.co.jp/Cc/chusday_eng/index.html">Chu's Day</A>
+      <A href="http://ibglearninghub.sgp.fujixerox.com/">E-Learning IBG</A> 
+	  -->
+	  </div>
+     
+
+      
+      
+      <div class="anylinkcss" id="menuinternet" style="WIDTH: 200px; BACKGROUND-COLOR: #eeeeee">
+	  <a href="http://www.astragraphia.co.id/">astragraphia.co.id</a> 
+	  <a href="http://www.documentsolution.com/en/index.php">Document Solution</a> 
+	  <a href="http://www.astra.co.id/">Astra International</a> 
+	  <a href="https://www.dapenastra.com/dapen/">Dana Pensiun Astra</a> 
+      <a href="http://www.xerox.com/">Xerox Corporation</a> 
+	  <a href="http://www.fujixerox.com/eng/">Fuji Xerox</a>
+	  <a href="http://www.sap.com/index.epx">SAP Global</a> 
+	  <a href="http://www.microsoft.com/">Microsoft</a> 
+	  <a href="https://www.bpjsketenagakerjaan.go.id/">BPJS Tenaga Kerja</a> </div>
+      <script language="JavaScript" src="./DocuShare_files/ds_routing.js.download"> </script>
+
+      <table cellspacing="0" cellpadding="0" width="780" border="0">
+        <tbody>
+        <tr>
+          <td><img height="1" src="./DocuShare_files/spacer.gif" width="220" border="0"></td>
+          <td><img height="1" src="./DocuShare_files/spacer.gif" width="51" border="0"></td>
+          <td><img height="1" src="./DocuShare_files/spacer.gif" width="36" border="0"></td>
+          <td><img height="1" src="./DocuShare_files/spacer.gif" width="90" border="0"></td>
+          <td><img height="1" src="./DocuShare_files/spacer.gif" width="62" border="0"></td>
+          <td><img height="1" src="./DocuShare_files/spacer.gif" width="32" border="0"></td>
+          <td><img height="1" src="./DocuShare_files/spacer.gif" width="91" border="0"></td>
+          <td><img height="1" src="./DocuShare_files/spacer.gif" width="109" border="0"></td>
+          <td><img height="1" src="./DocuShare_files/spacer.gif" width="68" border="0"></td>
+          <td><img height="1" src="./DocuShare_files/spacer.gif" width="21" border="0"></td>
+          <td><img height="1" src="./DocuShare_files/spacer.gif" width="1" border="0"></td></tr>
+        <tr>
+          <td><img id="header_r1_c1" height="71" src="./DocuShare_files/header_r1_c1.jpeg" width="220" border="0" name="header_r1_c1"></td>
+          <td colspan="4"><img id="header_r1_c2" height="71" src="./DocuShare_files/header_r1_c2.jpeg" width="239" border="0" name="header_r1_c2"></td>
+          <td colspan="5" rowspan="2"><img id="header_r1_c6" height="121" src="./DocuShare_files/header_r1_c6.jpeg" width="321" border="0" name="header_r1_c6"></td>
+          <td><img height="71" src="./DocuShare_files/spacer.gif" width="1" border="0"></td></tr>
+        <tr>
+          <td rowspan="2"><img id="header_r2_c1" height="126" src="./DocuShare_files/header_r2_c1.jpeg" width="220" border="0" name="header_r2_c1"></td>
+          <td colspan="4" rowspan="2"><img id="header_r2_c2" height="126" src="./DocuShare_files/header_r2_c2.jpeg" width="239" border="0" name="header_r2_c2"></td>
+          <td><img height="50" src="./DocuShare_files/spacer.gif" width="1" border="0"></td></tr>
+        <tr>
+          <td valign="center" align="right" background="./DocuShare_files/header_r3_c6.jpeg" colspan="5"><br><br><br><br><font color="#aaaaaa"><b><span id="application" onmouseover="style.cursor=&#39;hand&#39;;dropdownmenu(this, event, &#39;menuapplication&#39;)">Application</span> 
+            | <span id="shortcut" onmouseover="style.cursor=&#39;hand&#39;;dropdownmenu(this, event, &#39;menushortcut&#39;)">Short 
+            Cut</span> | <span id="intranet" onmouseover="style.cursor=&#39;hand&#39;;dropdownmenu(this, event, &#39;menuintranet&#39;)">Intranet</span> 
+            | <span id="internet" onmouseover="style.cursor=&#39;hand&#39;;dropdownmenu(this, event, &#39;menuinternet&#39;)">Internet</span> 
+            </b>&nbsp;</font></td>
+          <td><img height="76" src="./DocuShare_files/spacer.gif" width="1" border="0"></td></tr>
+        <tr>
+          <td colspan="3"><img id="header_r4_c1" height="36" src="./DocuShare_files/header_r4_c1.jpeg" width="307" border="0" name="header_r4_c1"></td>
+          <td><img id="header_r4_c4" height="36" src="./DocuShare_files/header_r4_c4.jpeg" width="90" usemap="#m_header_r4_c4" border="0" name="header_r4_c4"></td>
+          <td colspan="2"><img id="header_r4_c5" height="36" src="./DocuShare_files/header_r4_c5.jpeg" width="94" usemap="#m_header_r4_c5" border="0" name="header_r4_c5"></td>
+          <td><img id="header_r4_c7" height="36" src="./DocuShare_files/header_r4_c7.jpeg" width="91" usemap="#m_header_r4_c7" border="0" name="header_r4_c7"></td>
+          <td><img id="header_r4_c8" height="36" src="./DocuShare_files/header_r4_c8.jpeg" width="109" usemap="#m_header_r4_c8" border="0" name="header_r4_c8"></td>
+          <td><img id="header_r4_c9" height="36" src="./DocuShare_files/header_r4_c9.jpeg" width="68" usemap="#m_header_r4_c9" border="0" name="header_r4_c9"></td>
+          <td><img id="header_r4_c10" height="36" src="./DocuShare_files/header_r4_c10.jpeg" width="21" border="0" name="header_r4_c10"></td>
+          <td><img height="36" src="./DocuShare_files/spacer.gif" width="1" border="0"></td></tr>
+        <tr>
+          <td colspan="9">
+            <table cellspacing="0" cellpadding="0" width="100%" background="./DocuShare_files/header_r2_c1_new.gif" border="0">
+              <tbody>
+              <tr>
+                <td colspan="3"><img height="10" src="./DocuShare_files/spacer.gif" width="1" border="0"></td></tr>
+              <tr>
+                <td><img height="44" src="./DocuShare_files/spacer.gif" width="5" border="0"></td>
+                <td>
+                  <form name="Search" action="http://docushare.astragraphia.local:8080/docushare/dsweb/ApplySimpleSearch" method="post"><input type="hidden" value="-14fqo344rdnkeemzoax3a" name="tran_token"> <span style="WHITE-SPACE: nowrap"><a class="crumblinks" title="Click to view properties " href="http://docushare.astragraphia.local:8080/docushare/dsweb/Services/User-1" target="_top"><b>Guest</b></a> &nbsp; </span><span style="WHITE-SPACE: nowrap"><iframe allowtransparency="" scrolling="no" width="450" id="idContent" height="20" src="./DocuShare_files/Ultah.html" frameborder="0"></iframe></span></form></td>
+                <td align="right"><span style="VERTICAL-ALIGN: middle"><b>Search:</b></span> <input class="subheader_formtext" style="VERTICAL-ALIGN: middle" size="18" name="value1"> <input type="hidden" value="Site" name="D1"> <input class="subheader_formtext" style="VERTICAL-ALIGN: middle" type="submit" value="Go" border="0" name="goButton"> 
+                  <span id="searchOptionsHide" style="DISPLAY: none"><img style="VERTICAL-ALIGN: middle" onclick="showSearchOptions(&#39;searchoptions_tr&#39;); return(false);" alt="Click to hide search options" hspace="0" src="./DocuShare_files/submenu_arrow_collapse.gif" width="9" height="9"> </span><span id="searchOptionsShow"><img style="VERTICAL-ALIGN: middle" onclick="showSearchOptions(&#39;searchoptions_tr&#39;); return(false);" alt="Click to show search options" hspace="0" src="./DocuShare_files/submenu_arrow_expand.gif" width="9" height="9"> </span><span style="VERTICAL-ALIGN: middle"><a class="crumblinks" title="Click for advanced search" href="http://docushare.astragraphia.local:8080/docushare/dsweb/SearchForm/Site" target="_parent">Advanced</a></span> <img height="3" src="./DocuShare_files/spacer.gif" width="5"> </td></tr>
+              <tr>
+                <td colspan="3"><img height="22" src="./DocuShare_files/spacer.gif" width="1" border="0"></td></tr></tbody></table></td>
+          <td><img id="header_r5_c10" height="74" src="./DocuShare_files/header_r5_c10.jpeg" width="21" border="0" name="header_r5_c10"></td>
+          <td><img height="74" src="./DocuShare_files/spacer.gif" width="1" border="0"></td></tr></tbody></table><map id="m_header_r4_c4" name="m_header_r4_c4"><area title="Home" shape="RECT" target="_top" alt="Home" coords="0,0,90,36" href="http://docushare.astragraphia.local:8080/docushare/dsweb/Home"></map><map id="m_header_r4_c5" name="m_header_r4_c5"><area title="Content Map" shape="RECT" target="_top" alt="Content Map" coords="0,0,94,36" href="http://docushare.astragraphia.local:8080/docushare/dsweb/Index/Site?init=true"></map><map id="m_header_r4_c7" name="m_header_r4_c7"><area title="What&#39;s New" shape="RECT" target="_top" alt="Whats New" coords="0,0,91,36" href="http://docushare.astragraphia.local:8080/docushare/dsweb/ApplyListNew/Site?nresults=100"></map><map id="m_header_r4_c8" name="m_header_r4_c8"><area title="Users and Groups" shape="RECT" target="_top" alt="Users and Groups" coords="0,0,109,36" href="http://docushare.astragraphia.local:8080/docushare/dsweb/Registry"></map><map id="m_header_r4_c9" name="m_header_r4_c9"><area title="Help" shape="RECT" target="_top" alt="Help" coords="0,0,68,36" href="http://docushare.astragraphia.local:8080/docushare/dsweb/helpdesk"></map>
+      <table cellspacing="1" cellpadding="0" width="655" border="0">
+        <tbody>
+        <tr valign="top">
+          <td width="200">
+            <table cellspacing="0" cellpadding="0" width="0" border="0">
+              <tbody>
+              <tr>
+                <td width="0"><a name="login"><img height="1" src="./DocuShare_files/spacesep.gif" width="1" border="0"></a></td></tr></tbody></table>
+            <table cellspacing="0" cellpadding="4" width="195" border="0">
+              <tbody>
+              <tr>
+                <td style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px"><span class="graydot_dark_dividerline" style="WIDTH: 100%"><img height="1" src="./DocuShare_files/blank.gif" width="1"></span></td></tr>
+              <tr>
+                <td bgcolor="#f2f0f0">
+                  <table width="100%" align="center">
+                    <tbody>
+                    <tr>
+                      <td><img src="./DocuShare_files/LogoAG.png" width="200" border="0"> <br><font class="VariableWidth9"><b>PT Astra 
+                        Graphia Tbk</b> <br>Jl. Kramat Raya 43 <br>Jakarta 
+                        10450</font> </td></tr></tbody></table>
+                  <script language="JavaScript">
+function klik(obj)
+{
+  
+  if (obj.style.display == "none")
+     {eval("t" + obj.id).innerHTML ="<IMG SRC='HomePage_files/minus.gif'>";
+     obj.style.display =""}
+  else
+     { obj.style.display ="none";
+     eval("t" + obj.id).innerHTML ="<IMG SRC='HomePage_files/plus.gif'>"}
+    
+}
+
+function over(obj)
+{
+  obj.style.cursor = "hand"
+  
+}
+</script>
+                  <font face="Verdana,Trebuchet MS,arial" size="-2"><br><br><span id="s1" onmouseover="return over(s1)" onclick="return klik(s1g)"><span id="ts1g"><img src="./DocuShare_files/minus.gif" width="9" height="9"></span><b>Organization 
+                  Base</b><br></span><span id="s1g"><span id="s11a" style="LEFT: 10px; POSITION: relative; TOP: 0px"><span id="ts11ag"></span><a href="http://docushare.astragraphia.local:8080/docushare/dsweb/Get/Document-98891">Organization 
+                  Chart AG</a> <a href="http://docushare.astragraphia.local:8080/docushare/dsweb/Get/Document-164519/">AXI</a><img src="./DocuShare_files/new.gif"><br></span><span id="s11b" style="LEFT: 10px; POSITION: relative; TOP: 0px"><span id="ts11bg"></span><a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-396">Inside 
+                  Astragraphia</a><br></span><span id="s11" onmouseover="return over(s11)" style="LEFT: 10px; POSITION: relative; TOP: 0px" onclick="return klik(s11g)"><span id="ts11g"><img src="./DocuShare_files/plus.gif" width="9" height="9"></span> Shared 
+                  Services<br></span><span id="s11g" style="DISPLAY: none"><font size="1"><!--
+    <Span id='s112' STYLE="position: relative; left:20px; top:0px;"><a href='http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-67'>Cust. Srvc. & Support</A><BR></span>
+    <Span id='s113' STYLE="position: relative; left:20px; top:0px;"><a href='http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-17'>Inf.Mgmt & Bus. Dev (IMBD)</A><BR></span>
+    -->
+                  <span id="s114" style="LEFT: 20px; POSITION: relative; TOP: 0px">
+				  <a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-23884">Corp. Secretary, Legal &amp; Corp. Governance</a><br></span>
+                  <span id="s114" style="LEFT: 20px; POSITION: relative; TOP: 0px">
+				  <a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-97">Finance &amp; Accounting</a><br></span>
+                  <span id="s114" style="LEFT: 20px; POSITION: relative; TOP: 0px">
+                  <a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-466">Internal Audit &amp; Risk Management</a><br></span>	
+                 <span id="s114" style="LEFT: 20px; POSITION: relative; TOP: 0px">
+                  <a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-34740">Corp.Com &amp; Office Services</a><br></span>	 	
+                  	<!-- <Span id='s116' STYLE="position: relative; left:20px; top:0px;"><a href='http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-11'>HRD, Management Services</A><BR></span> --><span id="s116" onmouseover="return over(s116)" style="LEFT: 20px; POSITION: relative; TOP: 0px" onclick="return klik(s116g)"><span id="ts116g"><img src="./DocuShare_files/plus.gif" width="9" height="9"></span>HRD &amp; Mgmt. 
+                  Srvc<br></span><span id="s116g" style="DISPLAY: none"><span id="s1161" style="LEFT: 30px; POSITION: relative; TOP: 0px"><a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-11">HR 
+                  Srvc.</a><br></span><span id="s1162" style="LEFT: 30px; POSITION: relative; TOP: 0px"><a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-1242">QMO 
+                  Srvc.</a><br></span><span id="s1163" style="LEFT: 30px; POSITION: relative; TOP: 0px"><a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-21">Training 
+                  &amp; Dev.</a><br></span></span><!-- <Span id='s115' STYLE="position: relative; left:20px; top:0px;"><a href='http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-466'>Operational Audit</A><BR></span> --></font></span><span id="s12" onmouseover="return over(s12)" style="LEFT: 10px; POSITION: relative; TOP: 0px" onclick="return klik(s12g)"><span id="ts12g"><img src="./DocuShare_files/plus.gif" width="9" height="9"></span> Support<br></span><span id="s12g" style="DISPLAY: none"><font size="1"><!-- <Span id='s111' STYLE="position: relative; left:20px; top:0px;"><a href='http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-22'>Business Planning & Quality</A><BR></span> --><span id="s121" style="LEFT: 20px; POSITION: relative; TOP: 0px"><a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-4577">Planning 
+                  &amp; Marketing</a><br></span><span id="s122" style="LEFT: 20px; POSITION: relative; TOP: 0px"><a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-67">Cust. 
+                  Srvc. &amp; Support</a><br></span><span id="s123" style="LEFT: 20px; POSITION: relative; TOP: 0px"><a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-17">Inf. Mgmt &amp; Bus. Dev.</a><br></span><!--
+    <Span id='s121' STYLE="position: relative; left:20px; top:0px;"><a href='http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-5723'>Doc. Mgmt. Srvc</A><BR></span>
+    <Span id='s122' STYLE="position: relative; left:20px; top:0px;"><a href='http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-4582'>Color Business</A><BR></span>
+    <Span id='s123' STYLE="position: relative; left:20px; top:0px;"><a href='http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-12'>Office Sys. Business</A><BR></span> --><!-- <Span id='s124' STYLE="position: relative; left:20px; top:0px;"><a href='http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-19'>Document Multi Product Business [DMPB]</A><BR></span>
+    <Span id='s125' STYLE="position: relative; left:20px; top:0px;"><a href='http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-465'>Document Business Services [DBS]</A><BR></span> 
+    <Span id='s126' STYLE="position: relative; left:20px; top:0px;"><a href='http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-1052'>Document Mobile Service Business [DMSB]</A><BR></span> --></font></span><span id="s13" onmouseover="return over(s13)" style="LEFT: 10px; POSITION: relative; TOP: 0px" onclick="return klik(s13g)"><span id="ts13g"><img src="./DocuShare_files/plus.gif" width="9" height="9"></span> 
+                  Operations<br></span><span id="s13g" style="DISPLAY: none"><span id="s131" onmouseover="return over(s131)" style="LEFT: 20px; POSITION: relative; TOP: 0px" onclick="return klik(s131g)"><span id="ts131g"><img src="./DocuShare_files/plus.gif" width="9" height="9"></span>Business 
+                  Operation<br></span><span id="s131g" style="DISPLAY: none"><font size="1"><span id="s133a" style="LEFT: 30px; POSITION: relative; TOP: 0px"><a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-4598">Bus. 
+                  Cons. &amp; PM</a><br></span><span id="s133" style="LEFT: 30px; POSITION: relative; TOP: 0px"><a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-450">Major 
+                  Account</a><br></span><span id="s1311" style="LEFT: 30px; POSITION: relative; TOP: 0px"><a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-1527">Medan</a><br></span><span id="s1312" style="LEFT: 30px; POSITION: relative; TOP: 0px"><a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-1528">Batam</a><br></span><span id="s1313" style="LEFT: 30px; POSITION: relative; TOP: 0px"><a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-1529">Pekanbaru</a><br></span><span id="s1314" style="LEFT: 30px; POSITION: relative; TOP: 0px"><a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-1530">Palembang</a><br></span><span id="s13113" style="LEFT: 30px; POSITION: relative; TOP: 0px"><a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-1539">Bandung</a><br></span><span id="s1315" style="LEFT: 30px; POSITION: relative; TOP: 0px"><a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-1531">Jakarta 
+                  1</a><br></span><span id="s1316" style="LEFT: 30px; POSITION: relative; TOP: 0px"><a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-1532">Jakarta 
+                  2</a><br></span><span id="s1317" style="LEFT: 30px; POSITION: relative; TOP: 0px"><a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-1533">Jakarta 
+                  3</a><br></span><span id="s1318" style="LEFT: 30px; POSITION: relative; TOP: 0px"><a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-1534">Jakarta 
+                  4</a><br></span><span id="s1319" style="LEFT: 30px; POSITION: relative; TOP: 0px"><a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-1535">Jakarta 
+                  5</a><br></span><span id="s13110" style="LEFT: 30px; POSITION: relative; TOP: 0px"><a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-1536">Jakarta 
+                  6</a><br></span><span id="s13111" style="LEFT: 30px; POSITION: relative; TOP: 0px"><a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-1537">Tangerang</a><br></span><span id="s13112" style="LEFT: 30px; POSITION: relative; TOP: 0px"><a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-1538">Kerawang</a><br></span><span id="s13114" style="LEFT: 30px; POSITION: relative; TOP: 0px"><a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-1540">Semarang</a><br></span><span id="s13115" style="LEFT: 30px; POSITION: relative; TOP: 0px"><a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-1541">Surabaya</a><br></span><span id="s13116" style="LEFT: 30px; POSITION: relative; TOP: 0px"><a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-1542">Denpasar</a><br></span><span id="s13117" style="LEFT: 30px; POSITION: relative; TOP: 0px"><a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-1543">Balikpapan</a><br></span><span id="s13117" style="LEFT: 30px; POSITION: relative; TOP: 0px"><a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-1544">Makassar</a><br></span></font></span><!-- <Span id='s132'   onMouseOver='return over(s132)' onClick='return klik(s132g)'  STYLE="position: relative; left:20px; top:0px;"><span id='ts132g'><IMG SRC="HomePage_files/plus.gif"></span>East Area<BR></span> --><span id="s132g" style="DISPLAY: none"><font size="1"></font></span><span id="s134" style="LEFT: 20px; POSITION: relative; TOP: 0px"><a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-4575">Production 
+                  Service Business Operation</a><br></span><span id="s135" style="LEFT: 20px; POSITION: relative; TOP: 0px"><a href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-4576">Printer 
+                  Channel Business</a><br></span></span></span><!--
+<Span id='s2' onMouseOver='return over(s2)' onClick='return klik(s2g)' STYLE="position: relative; left:0px; top:0px;"><span id='ts2g'><IMG SRC="HomePage_files/plus.gif"></span> <B>Knowledge Base</B><BR></span>
+<span id='s2g' style=display='none'><font size=1>
+  <Span id='s21' STYLE="position: relative; left:10px; top:0px;"><a href='http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-13'>Document Consultant & Integrated Solution</A><BR></span>
+  <Span id='s22' STYLE="position: relative; left:10px; top:0px;"><a href='http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-787'>Document Production System Business</A><BR></span>
+  <Span id='s23' STYLE="position: relative; left:10px; top:0px;"><a href='http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-460'>Document Office System Business</A><BR></span>
+  <Span id='s24' STYLE="position: relative; left:10px; top:0px;"><a href='http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-528'>Document Multi Product Business</A><BR></span>
+  <Span id='s25' STYLE="position: relative; left:10px; top:0px;"><a href='http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-532'>Document Business Services</A><BR></span>
+  <Span id='s26' STYLE="position: relative; left:10px; top:0px;"><a href='http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-1053'>Mobile Service Business</A><BR></span>
+  </font>
+</span>  
+--><!--
+<Span id='s3' onMouseOver='return over(s3)' onClick='return klik(s3g)' STYLE="position: relative; left:0px; top:0px;"><span id='ts3g'><IMG SRC="HomePage_files/plus.gif"></span> <B>Solution Base</B><BR></span>
+<span id='s3g' style=display='none'><font size=1>
+  <Span id='s31' STYLE="position: relative; left:10px; top:0px;"><a href='http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-13'>Document Consultant & Integrated Solution</A><BR></span>
+  <Span id='s32' STYLE="position: relative; left:10px; top:0px;"><a href='http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-790'>Document Production System Business</A><BR></span>
+  <Span id='s33' STYLE="position: relative; left:10px; top:0px;"><a href='http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-462'>Document Office System Business</A><BR></span>
+  <Span id='s34' STYLE="position: relative; left:10px; top:0px;"><a href='http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-530'>Document Multi Product Business</A><BR></span>
+  <Span id='s35' STYLE="position: relative; left:10px; top:0px;"><a href='http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-534'>Document Business Services</A><BR></span>
+  <Span id='s36' STYLE="position: relative; left:10px; top:0px;"><a href='http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-534'>Mobile Service Business</A><BR></span>
+  <Span id='s37' STYLE="position: relative; left:10px; top:0px;"><a href='http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-600'>Document Solution Technology Center</A><BR></span>
+  </font>
+</span>
+--><!--
+<Span id='s7' onMouseOver='return over(s7)' onClick='return klik(s7g)' STYLE="position: relative; left:0px; top:0px;"><span id='ts7g'><IMG SRC="HomePage_files/plus.gif"></span> <B>Intranet Link</B><BR></span>
+<span id='s7g' style=display='none'><font size=1>
+  <Span id='s77' STYLE="position: relative; left:10px; top:0px;"><a href='http://intranet.ssc.fxhq.fujixerox.co.jp/eng/'>FX DocuSquare Portal</A><BR></span>
+  <Span id='s71' STYLE="position: relative; left:10px; top:0px;"><a href='http://xww.sgp.xerox.com'>Fuji Xerox Asia Pacific, Pte, Ltd</A><BR></span>
+  <Span id='s77' STYLE="position: relative; left:10px; top:0px;"><a href='http://xww.internal.xerox.com'>Xerox Web Board</A><BR></span>
+  <Span id='s72' STYLE="position: relative; left:10px; top:0px;"><a href='http://xww.fxap.sgp.xerox.com/index.jsp'>IBG Portal</A><BR></span>
+  <Span id='s77' STYLE="position: relative; left:10px; top:0px;"><a href='http://docubase.ssc.fxhq.fujixerox.co.jp/pm/eng/index.html'>President Arima Homepage</A><BR></span>
+  
+  <Span id='s73' STYLE="position: relative; left:10px; top:0px;"><a href='http://13.196.3.90/'>DOSB Website</A><BR></span>
+  <Span id='s73' STYLE="position: relative; left:10px; top:0px;"><a href='http://xww.idn.xerox.com/DMPB/'>DMPB Website</A><BR></span>
+  <Span id='s74' STYLE="position: relative; left:10px; top:0px;"><a href='http://xww.idn.xerox.com/Helpdesk/home.asp'>Solution Online</A><BR></span>
+  <Span id='s75' STYLE="position: relative; left:10px; top:0px;"><a href='http://xww.idn.xerox.com/CS/'>CARS</A><BR></span>
+  <Span id='s76' STYLE="position: relative; left:10px; top:0px;"><a href='http://xww.idn.xerox.com/Soluex'>Soluex</A><BR></span>
+  </font>
+</span>
+--><!--
+<Span id='s8' onMouseOver='return over(s8)' onClick='return klik(s8g)' STYLE="position: relative; left:0px; top:0px;"><span id='ts8g'><IMG SRC="HomePage_files/plus.gif"></span> <B>Internet Link</B><BR></span>
+<span id='s8g' style=display='none'><font size=1>
+  <Span id='s81' STYLE="position: relative; left:10px; top:0px;"><a href='http://www.documentsolution.com'>Astragraphia Web Site</A><BR></span>
+  <Span id='s82' STYLE="position: relative; left:10px; top:0px;"><a href='http://www.la-solute.com'>La-Solute</A><BR></span>
+  <Span id='s85' STYLE="position: relative; left:10px; top:0px;"><a href='http://www.layangerak.com'>Layan Gerak</A><BR></span>
+
+  <Span id='s84' STYLE="position: relative; left:10px; top:0px;"><a href='http://www.xerox.com'>Xerox Corporation</A><BR></span>
+  <Span id='s85' STYLE="position: relative; left:10px; top:0px;"><a href='http://www.sap.com'>SAP</A><BR></span>
+  <Span id='s86' STYLE="position: relative; left:10px; top:0px;"><a href='http://www.MySAP.com'>MySAP.com</A><BR></span>
+  <Span id='s87' STYLE="position: relative; left:10px; top:0px;"><a href='http://www.techrepublic.com'>Techrepublic</A><BR></span>
+  </font>
+</span>
+--><br></font></td></tr>
+              <tr>
+                <td class="homePageSidebarTitle">Login:</td></tr>
+              <tr>
+                <td style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px"><span class="graydot_dark_dividerline" style="WIDTH: 100%"><img height="1" src="./DocuShare_files/blank.gif" width="1"></span></td></tr>
+              <tr>
+                <td bgcolor="#f2f0f0">
+                  <form name="Login" action="http://docushare.astragraphia.local:8080/docushare/dsweb/ApplyLogin" method="post"><input type="hidden" value="-14fqo344rdnkeemzoax3a" name="tran_token"> <font class="VariableWidth9">Username</font> 
+                  <br><input class="VariableWidth9" tabindex="1" name="username"> 
+                  <br><font class="VariableWidth9">Password</font> <br><input class="VariableWidth9" tabindex="2" type="password" name="password"> 
+                  <br><font class="VariableWidth9">Domain</font> <br><select class="VariableWidth9" tabindex="3" size="1" name="domain"> <option value="DocuShare" selected="">DocuShare</option></select> 
+                  <br><input tabindex="4" type="checkbox" name="keep"> <a class="VariableWidth9URL" href="http://docushare.astragraphia.local:8080/docushare/dsweb/PropHelp/keep_login">retain 
+                  login for future</a> <br><input class="bs" tabindex="4" type="submit" value="Go" name="Login"> 
+                  </form><font class="VariableWidth9">You must login to add 
+                  content or see restricted content.</font></td></tr>
+              <tr>
+                <td bgcolor="#f2f0f0" height="10"></td>
+              </tr><tr>
+                <td class="homePageSidebarTitle">What's New:</td></tr>
+              <tr>
+                <td style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px"><span class="graydot_dark_dividerline" style="WIDTH: 100%"><img height="1" src="./DocuShare_files/blank.gif" width="1"></span></td></tr>
+              <tr>
+                <td bgcolor="#f2f0f0">
+                  <form name="ApplyListNew" action="http://docushare.astragraphia.local:8080/docushare/dsweb/ApplyListNew/Site" method="post"><input type="hidden" value="-14fqo344rdnkeemzoax3a" name="tran_token"> 
+                  <input type="hidden" value="100" name="nresults"> <select class="VariableWidth9" name="days"> <option value="0" selected="">in 
+                    the last hour</option> <option value="1">today</option> 
+                    <option value="2">in the last 2 days</option> <option value="3">in the last 3 days</option> <option value="4">in the 
+                    last 4 days</option></select> <br><input class="bs" type="submit" value="Go" name="Search"> 
+                  </form><font class="VariableWidth9">Lists all modified content. 
+                  See what's new today!</font> </td></tr>
+              <tr>
+                <td bgcolor="#f2f0f0" height="10"></td>
+              </tr><tr>
+                <td class="homePageSidebarTitle"></td>
+              </tr><tr>
+                <td style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px" colspan="5"><span class="graydot_dividerline" style="WIDTH: 100%"><img height="1" src="./DocuShare_files/blank.gif" width="1"></span></td></tr>
+              <tr>
+                <td bgcolor="#f2f0f0">
+                  <center><br><a href="http://owa/"><img src="./DocuShare_files/owa.gif" border="0" width="144" height="20"></a> <br><br><font class="VariableWidth9"><a href="http://docushare.astragraphia.local:8080/docushare/dsweb/Get/Document-1584">AGDS 
+                  Phone Directory</a></font> <br><br>
+				  <a href="http://osmc.fujixerox.com/"><img src="./DocuShare_files/osmc.jpg" border="0" width="195" height="40"></a><font size="1"><br>FX VPN connection is required</font><br><br>
+                  <!-- <iframe ALLOWTRANSPARENCY scrolling='no' width='180' id='idContent' height='20' Src='http://xww.idn.xerox.com/webmail/info.asp' frameborder=0></iframe> -->
+                  <img src="./DocuShare_files/fxlogo.gif" width="186" height="43"> <br><br><font class="VariableWidth9"><b><br><font color="#000000"> <br>Best 
+                  view with Internet Explorer with 800x600 (or higher) 
+                  resolution </font></b></font></center></td></tr>
+              <tr>
+                <td bgcolor="#f2f0f0" height="10">&nbsp;</td></tr></tbody></table></td>
+          <td width="20" rowspan="2">&nbsp; &nbsp; </td>
+          <td align="left">
+            <p>
+            <table cellspacing="0" cellpadding="0" width="0" border="0">
+              <tbody>
+              <tr>
+                <td width="0"><a name="contents"><img height="1" src="./DocuShare_files/spacesep.gif" width="1" border="0"></a></td></tr></tbody></table>
+            <table cellspacing="0" cellpadding="2" width="90%" border="0">
+              <tbody>
+              <tr>
+                <td colspan="2"><br>
+                  <div class="VariableWidth12Bold">Welcome to DocuShare!</div>
+                  <p><span class="VariableWidth9">Providing essential tools to 
+                  improve the efficiency of document-intensive processes 
+                  throughout your enterprise. </span>
+                  </p><p></p>
+                  <div class="graydot_dividerline" style="WIDTH: 100%"><img height="1" src="./DocuShare_files/blank.gif" width="1"></div></td></tr>
+              <tr>
+                <td valign="top" align="left" width="15"><a class="VariableWidth9URL" href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-396"><img class="midalign" title="Collection" style="FILTER: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=&#39;HomePage_Files/small/folder.png&#39;, sizingMethod=&#39;image&#39;)" height="18" alt="Collection" src="./DocuShare_files/blank.gif" width="18" border="0"></a> </td>
+                <td valign="top" width="100%"><a class="VariableWidth9URLBold" href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-396">Inside 
+                  Astragraphia</a> <br><font class="summaryText"></font></td></tr>
+              <tr>
+                <td valign="top" align="left" width="15"><a class="VariableWidth9URL" href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-1559"><img class="midalign" title="Collection" style="FILTER: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=&#39;HomePage_Files/small/folder.png&#39;, sizingMethod=&#39;image&#39;)" height="18" alt="Collection" src="./DocuShare_files/blank.gif" width="18" border="0"></a> </td>
+                <td valign="top" width="100%"><a class="VariableWidth9URLBold" href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-1559">Knowledge 
+                  Base</a> <br><font class="summaryText"></font></td></tr>
+              <tr>
+                <td valign="top" align="left" width="15"><a class="VariableWidth9URL" href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-1557"><img class="midalign" title="Collection" style="FILTER: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=&#39;HomePage_Files/small/folder.png&#39;, sizingMethod=&#39;image&#39;)" height="18" alt="Collection" src="./DocuShare_files/blank.gif" width="18" border="0"></a> </td>
+                <td valign="top" width="100%"><a class="VariableWidth9URLBold" href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-1557">Organization 
+                  Base</a> <br><font class="summaryText"></font></td></tr>
+              <tr>
+                <td valign="top" align="left" width="15"><a class="VariableWidth9URL" href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-1558"><img class="midalign" title="Collection" style="FILTER: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=&#39;HomePage_Files/small/folder.png&#39;, sizingMethod=&#39;image&#39;)" height="18" alt="Collection" src="./DocuShare_files/blank.gif" width="18" border="0"></a> </td>
+                <td valign="top" width="100%"><a class="VariableWidth9URLBold" href="http://docushare.astragraphia.local:8080/docushare/dsweb/View/Collection-1558">Solution 
+                  Base</a> <br><font class="summaryText"></font></td></tr>
+              <tr align="middle">
+                <td colspan="2"><br>
+                	<!-- <marquee  behavior="alternate"><B><a href="http://blogsphere/documentsolution/blog/2009/05/14/astragraphia-kembali-memenangkan-gcg-award/">PT Astra Graphia Tbk Memenangkan GCG Award 2009</a></b></marquee><BR> -->
+                	<!-- <marquee  behavior="alternate"><center><B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://blogsphere/documentsolution/Roosa/2009/06/12/another-award-for-astragraphia/">PT Astra Graphia Tbk Memperoleh <BR>'Special Recognition for Office Product Business 2008'</a></B></center></marquee><BR> -->
+<!--					
+	<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+  	codebase="http://active.macromedia.com/flash2/cabs/swflash.cab#version=4,0,0,0"
+  	id="promo" width="500" height="90">
+  	<param name="movie" value="http://xww.idn.xerox.com/USS2010.swf">
+  	<param name="quality" value="high">
+  	<param name="bgcolor" value="#ffffff">
+  	<embed name="library" src="http://xww.idn.xerox.com/USS2010.swf" quality="high" bgcolor="#ffffff"
+    	width="500" height="90"
+    	type="application/x-shockwave-flash"
+    	pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">
+  	</embed>
+	</object>
+	-->
+					<!-- <marquee  behavior="alternate"><center><B><a href="https://www.dapenastra.com/dapen/">Informasi Saldo Iuran dan Perkembangan Dana Pensiun Astra</a></B></center></marquee><BR> -->
+                	<br><br>
+                	<iframe allowtransparency="" scrolling="no" width="450" id="idBlogsphere" height="300" src="./DocuShare_files/ag_feed.html" frameborder="0"></iframe>
+                	
+<!--
+					<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+  	codebase="http://active.macromedia.com/flash2/cabs/swflash.cab#version=4,0,0,0"
+  	id="promo" width="500" height="90">
+  	<param name="movie" value="http://xww.idn.xerox.com/USS2010.swf">
+  	<param name="quality" value="high">
+  	<param name="bgcolor" value="#ffffff">
+  	<embed name="library" src="http://xww.idn.xerox.com/USS2010.swf" quality="high" bgcolor="#ffffff"
+    	width="500" height="90"
+    	type="application/x-shockwave-flash"
+    	pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">
+  	</embed>
+	</object>
+	-->
+                	
+                	<!-- 
+                	<OBJECT id=17an codeBase=http://active.macromedia.com/flash2/cabs/swflash.cab#version=4,0,0,0 height="375" width="500" classid=clsid:D27CDB6E-AE6D-11cf-96B8-444553540000><PARAM NAME="movie" VALUE="17Agustus07.swf">
+                    <PARAM NAME="quality" VALUE="high">
+                    <PARAM NAME="bgcolor" VALUE="#000000">
+                    <embed name="Ultah28" src="17Agustus07.swf" quality="high" bgcolor="#000000" width="500" height="400" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"> 
+                    </embed>  
+                  </OBJECT>   -->
+                	 
+                  
+                  
+                  
+                  </td></tr>
+              <tr align="Top">
+                <td colspan="2"><br>
+                	<a border="0" href="http://docushare.astragraphia.local:8080/docushare/dsweb/Get/Document-48134/mading.pdf"><img border="0" src="./DocuShare_files/PasswordNew.gif" width="500"></a>
+                	<a href="http://intranet/event/Culture.htm"><img border="0" src="./DocuShare_files/PopUp2-01.gif" width="500"></a><br><br>
+                	<!-- <A href="http://docushare.astragraphia.local:8080/docushare/dsweb/Get/Document-47501/noproblemo.jpg"><IMG 
+                  src="HomePage_files/noproblemo_small.jpeg" align=right 
+                  border=0 width="374" height="287"></A> --> 
+                  <a href="http://docushare.astragraphia.local:8080/docushare/dsweb/Get/Document-152787"><img src="./DocuShare_files/Flyer3HDT-1.jpg" align="right" border="0" width="374" height="287"></a>
+     <!-- <OBJECT id=Ultah28New 
+                  codeBase=http://active.macromedia.com/flash2/cabs/swflash.cab#version=4,0,0,0 
+                  height=88 width=500 
+                  classid=clsid:D27CDB6E-AE6D-11cf-96B8-444553540000><PARAM NAME="movie" VALUE="http://docushare.astragraphia.local:8080/docushare/astragraphia/BluePrint.swf"><PARAM NAME="quality" VALUE="high"><PARAM NAME="bgcolor" VALUE="#000000">
+                                  <embed name="Ultah28" 
+                  src="http://docushare.astragraphia.local:8080/docushare/astragraphia/BluePrint.swf" 
+                  quality="high" bgcolor="#000000" width="500" height="88" 
+                  type="application/x-shockwave-flash" 
+                  pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"> 
+                     </embed>  
+      </OBJECT> -->
+     
+  <br><br>
+  
+ 
+  
+      
+      
+      </td></tr></tbody></table></p></td></tr></tbody></table>
+      <table cellspacing="0" border="0" cellpaddong="0">
+        <tbody>
+        <tr>
+          <td><img id="footer_r1_c1" height="20" src="./DocuShare_files/footer_r1_c1.jpeg" width="780" border="0" name="footer_r1_c1"></td></tr>
+        <tr>
+          <td align="middle">Developed and Maintained By <a href="mailto:sofyan.hadi@idn.fujixerox.com">
+            Information Management &amp; Business Development Division</a><br><font color="#990033"><b>astragraphia</b></font><font color="#ff8000"> 
+            document solution</font><br><font color="#990033"><b>© 
+            2006</b></font><br><br></td></tr></tbody></table></td>
+    <td valign="bottom" background="./DocuShare_files/bg_right.gif"><img height="16" alt="" src="./DocuShare_files/bg_right.gif" width="17" border="0"></td></tr>
+  <tr>
+    <td></td>
+    <td><img height="5" src="./DocuShare_files/bg_btm.gif" width="100%"></td>
+    <td></td></tr></tbody></table>
+<script language="Javascript"><!-- hide
+		   document.Login.username.focus();
+		// --></script>
+
+</body></html>

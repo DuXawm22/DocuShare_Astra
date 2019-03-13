@@ -1,0 +1,42 @@
+		function restoreFocus()
+		{
+			window.focus();
+		}
+
+
+		function openMyTasksWindow(location_base)
+		  {
+		   var location = location_base + 'dsweb/routing/my_tasks_tabbed.jsp';
+		   var attributes = "toolbar=no,location=no,directories=no,status=yes,menubar=no,scrollbars=yes,copyhistory=no,resizable=yes,width=550,height=450";
+		   var win = window.open( location, "mytaskswindow", attributes);
+		   win.onClose = restoreFocus;
+		   win.focus();
+		}
+
+		function openTaskWindow(location_base, location)
+		{
+			var attributes = "toolbar=no,location=no,directories=no,status=yes,menubar=no,scrollbars=yes,copyhistory=no,resizable=yes,width=550,height=550";
+			var win = window.open(location_base + "dsweb/routing/" + location, "taskwindow", attributes);
+			win.onClose = restoreFocus;
+			win.focus();
+		}
+		
+		function openRoutingSlip(location_base, document)
+		{
+			var attributes = "toolbar=no,location=no,directories=no,status=yes,menubar=no,scrollbars=yes,copyhistory=no,resizable=yes,width=600,height=600,top=0";
+			// trick from "http://www.javascripter.net/faq/openinga.htm"
+			// opens window but does not modify its contents
+			var win = window.open("", "routingslipwindow", attributes);
+			if (win.addDocument) {
+				// add document to existing routing slip window after prompting
+				win.addDocument(document,true);
+			} else {
+				// open new routing slip window
+				//var location = location_base + 'dsweb/routing/routingslip.jsp?documents=' + escape(document);
+				var location = location_base + 'dsweb/routing/wizard_p1.jsp?documents=' + escape(document);
+				win = window.open(location, "routingslipwindow", attributes);
+			}
+			win.onClose = restoreFocus;
+			win.focus();
+		}
+		

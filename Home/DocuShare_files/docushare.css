@@ -1,0 +1,282 @@
+BODY {
+	MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px
+}
+BODY TABLE {
+	MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px
+}
+TD {
+	MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px
+}
+TR {
+	MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px
+}
+FORM {
+	MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px
+}
+BODY {
+	FONT-SIZE: 12px; FONT-FAMILY: Verdana,Arial,Helvetica,sans-serif
+}
+TD {
+	FONT-SIZE: 12px; FONT-FAMILY: Verdana,Arial,Helvetica,sans-serif
+}
+LI {
+	FONT-SIZE: 12px; FONT-FAMILY: Verdana,Arial,Helvetica,sans-serif
+}
+TH {
+	FONT-SIZE: 12px; FONT-FAMILY: Verdana,Arial,Helvetica,sans-serif
+}
+PRE {
+	FONT-SIZE: 12px; FONT-FAMILY: Verdana,Arial,Helvetica,sans-serif
+}
+SELECT {
+	FONT: 8pt Verdana,Arial,Helvetica,sans-serif; COLOR: black
+}
+INPUT {
+	FONT: 8pt Verdana,Arial,Helvetica,sans-serif; COLOR: black
+}
+H2 {
+	FONT: bold 10pt Verdana, Arial, Helvetica, sans-serif; COLOR: black
+}
+A:active {
+	COLOR: #4c67bf; TEXT-DECORATION: none
+}
+A:link {
+	COLOR: #4c67bf; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #4c67bf; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #4c67bf; TEXT-DECORATION: underline
+}
+.variablewidth9url {
+	FONT: 8pt Verdana,Arial,Helvetica,sans-serif; COLOR: #475171
+}
+.variablewidth9urlbold {
+	FONT: bold 8pt Verdana,Arial,Helvetica,sans-serif; COLOR: #475171
+}
+.variablewidth12urlbold {
+	FONT: bold 8pt Verdana,Arial,Helvetica,sans-serif; COLOR: #475171
+}
+.noitemstext {
+	FONT-SIZE: 8pt; COLOR: gray; FONT-STYLE: italic; FONT-FAMILY: Verdana,Arial,Helvetica,sans-serif
+}
+A.poptab:active {
+	FONT: bold 8pt Verdana, Arial, Helvetica, sans-serif; COLOR: white; TEXT-DECORATION: none
+}
+A.poptab:link {
+	FONT: bold 8pt Verdana, Arial, Helvetica, sans-serif; COLOR: white; TEXT-DECORATION: none
+}
+A.poptab:visited {
+	FONT: bold 8pt Verdana, Arial, Helvetica, sans-serif; COLOR: white; TEXT-DECORATION: none
+}
+A.poptab:hover {
+	FONT: bold 8pt Verdana, Arial, Helvetica, sans-serif; COLOR: black; TEXT-DECORATION: none
+}
+.bs {
+	FONT-WEIGHT: normal; FONT-SIZE: 8pt; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.variablewidth9 {
+	FONT: 8pt Verdana,Arial,Helvetica,sans-serif; COLOR: black; TEXT-DECORATION: none
+}
+.variablewidth9bold {
+	FONT: bold 8pt Verdana,Arial,Helvetica,sans-serif; COLOR: black; TEXT-DECORATION: none
+}
+.variablewidth12bold {
+	FONT: bold 8pt Verdana,Arial,Helvetica,sans-serif; COLOR: black; TEXT-DECORATION: none
+}
+.variableWidth9BoldRed {
+	FONT: bold 8pt Verdana,Arial,Helvetica,sans-serif; COLOR: #ff0000; TEXT-DECORATION: none
+}
+.summaryText {
+	FONT: 8pt Verdana,Arial,Helvetica,sans-serif; COLOR: #808080; TEXT-DECORATION: none
+}
+.toolbar_multi {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; BACKGROUND-COLOR: #dbd2d2
+}
+.graydot_dividerline {
+	WIDTH: 100%; BACKGROUND-COLOR: #f2f0f0
+}
+.graydot_dark_dividerline {
+	WIDTH: 100%; BACKGROUND-COLOR: #dad3d2
+}
+.collectionListdividerline {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; WIDTH: 100%; PADDING-TOP: 0px; BACKGROUND-COLOR: #f2f0f0
+}
+.pageheader_dividerline {
+	MARGIN-TOP: 5px; MARGIN-BOTTOM: 5px; WIDTH: 100%; BACKGROUND-COLOR: #ebe1e1
+}
+.spacer {
+	FONT-SIZE: 1pt
+}
+.rowselected {
+	BACKGROUND-COLOR: #ebe1e1
+}
+.selected {
+	FONT: bold 8pt Verdana, Arial, Helvetica, sans-serif; COLOR: black
+}
+.fieldname {
+	FONT: bold 8pt Verdana, Arial, Helvetica, sans-serif; COLOR: black
+}
+.fieldvalue {
+	FONT: 8pt Verdana, Arial, Helvetica, sans-serif; COLOR: black
+}
+TEXTAREA {
+	FONT: 8pt Verdana, Arial, Helvetica, sans-serif; COLOR: black
+}
+.midalign {
+	VERTICAL-ALIGN: middle
+}
+.basealign {
+	VERTICAL-ALIGN: baseline
+}
+.dialogbody {
+	BACKGROUND-COLOR: #fafafa
+}
+.dialogborder {
+	BACKGROUND-COLOR: #e6e6e6
+}
+.header {
+	FONT: bold 11pt Verdana, Arial, Helvetica, sans-serif; COLOR: black
+}
+.header_linksection {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; BORDER-BOTTOM: white 1px solid; BACKGROUND-COLOR: black
+}
+.subheader_crumbbar {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 5px; FONT-SIZE: 7pt; PADDING-BOTTOM: 3px; COLOR: black; PADDING-TOP: 3px; BACKGROUND-COLOR: #dad3d2
+}
+.subheader_search {
+	PADDING-RIGHT: 8px; PADDING-LEFT: 3px; FONT-SIZE: 7pt; PADDING-BOTTOM: 3px; COLOR: black; PADDING-TOP: 3px; BACKGROUND-COLOR: #dad3d2
+}
+.subheader_search_hidden {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; PADDING-BOTTOM: 4px; PADDING-TOP: 0px; BACKGROUND-COLOR: #dad3d2
+}
+.subheader_formtext {
+	FONT-WEIGHT: normal; FONT-SIZE: 7pt; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+A.headerlinks:link {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; FILTER: progid:DXImageTransform.Microsoft.Shadow(color=#46506F,direction=135,strength=2); COLOR: white; TEXT-DECORATION: none
+}
+A.headerlinks:visited {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; FILTER: progid:DXImageTransform.Microsoft.Shadow(color=#46506F,direction=135,strength=2); COLOR: white; TEXT-DECORATION: none
+}
+A.headerlinks:hover {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; FILTER: progid:DXImageTransform.Microsoft.Shadow(color=#46506F,direction=135,strength=2); COLOR: white; TEXT-DECORATION: underline
+}
+A.headerlinks:hover {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; FILTER: progid:DXImageTransform.Microsoft.Shadow(color=#46506F,direction=135,strength=2); COLOR: white; TEXT-DECORATION: underline
+}
+visited {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; FILTER: progid:DXImageTransform.Microsoft.Shadow(color=#46506F,direction=135,strength=2); COLOR: white; TEXT-DECORATION: underline
+}
+A.headerlinks:active {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; FILTER: filter:progid:DXImageTransform.Microsoft.Shadow(color=#46506F,direction=135,strength=2); COLOR: white; TEXT-DECORATION: none
+}
+A.headerlinks:hover {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; FILTER: progid:DXImageTransform.Microsoft.Shadow(color=#46506F,direction=135,strength=2); COLOR: white; TEXT-DECORATION: underline
+}
+active {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; FILTER: progid:DXImageTransform.Microsoft.Shadow(color=#46506F,direction=135,strength=2); COLOR: white; TEXT-DECORATION: underline
+}
+A.crumblinks:link {
+	FONT-WEIGHT: normal; FONT-SIZE: 7pt; FILTER: progid:DXImageTransform.Microsoft.Shadow(color=#46506F,direction=135,strength=2); COLOR: black; TEXT-DECORATION: none
+}
+A.crumblinks:visited {
+	FONT-WEIGHT: normal; FONT-SIZE: 7pt; FILTER: progid:DXImageTransform.Microsoft.Shadow(color=#46506F,direction=135,strength=2); COLOR: black; TEXT-DECORATION: none
+}
+A.crumblinks:hover {
+	FONT-WEIGHT: normal; FONT-SIZE: 7pt; FILTER: progid:DXImageTransform.Microsoft.Shadow(color=#46506F,direction=135,strength=2); COLOR: black; TEXT-DECORATION: underline
+}
+A.crumblinks:hover {
+	FONT-WEIGHT: normal; FONT-SIZE: 7pt; FILTER: progid:DXImageTransform.Microsoft.Shadow(color=#46506F,direction=135,strength=2); COLOR: black; TEXT-DECORATION: underline
+}
+visited {
+	FONT-WEIGHT: normal; FONT-SIZE: 7pt; FILTER: progid:DXImageTransform.Microsoft.Shadow(color=#46506F,direction=135,strength=2); COLOR: black; TEXT-DECORATION: underline
+}
+A.crumblinks:active {
+	FONT-WEIGHT: normal; FONT-SIZE: 7pt; FILTER: filter:progid:DXImageTransform.Microsoft.Shadow(color=#46506F,direction=135,strength=2); COLOR: black; TEXT-DECORATION: none
+}
+A.crumblinks:hover {
+	FONT-WEIGHT: normal; FONT-SIZE: 7pt; FILTER: progid:DXImageTransform.Microsoft.Shadow(color=#46506F,direction=135,strength=2); COLOR: black; TEXT-DECORATION: underline
+}
+active {
+	FONT-WEIGHT: normal; FONT-SIZE: 7pt; FILTER: progid:DXImageTransform.Microsoft.Shadow(color=#46506F,direction=135,strength=2); COLOR: black; TEXT-DECORATION: underline
+}
+.headerlink_container {
+	WIDTH: 100%; COLOR: white
+}
+.text_dvline {
+	BACKGROUND: url(images/pattern_vertdividerwhite.gif) repeat-y 50% top; VERTICAL-ALIGN: middle; WIDTH: 3px; HEIGHT: 15px
+}
+.text_dvline_loginbar {
+	BACKGROUND: url(images/pattern_vertdividerblack.gif) repeat-y 50% top; VERTICAL-ALIGN: middle; WIDTH: 3px; HEIGHT: 15px
+}
+.postentry_author {
+	BACKGROUND: #dad3d2
+}
+.postentry_message {
+	BACKGROUND: #faf7f7
+}
+.discussionHeader {
+	FONT-WEIGHT: bold; BACKGROUND: #a3a1a1; COLOR: white; BORDER-BOTTOM: black 1px solid
+}
+.subPostNotice {
+	FONT: 8pt Verdana,Arial,Helvetica,sans-serif; COLOR: #4d4d4d
+}
+.portletHeader {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-WEIGHT: bold; FONT-SIZE: 8pt; BACKGROUND: #dad3d2; PADDING-BOTTOM: 5px; PADDING-TOP: 5px
+}
+.portletSubHeader {
+	PADDING-RIGHT: 4px; PADDING-LEFT: 4px; BACKGROUND: #f2f0f0; PADDING-BOTTOM: 4px; PADDING-TOP: 4px
+}
+.portletHeader_nav {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-WEIGHT: normal; FONT-SIZE: 8pt; BACKGROUND: #dad3d2; PADDING-BOTTOM: 5px; PADDING-TOP: 5px
+}
+.portletNavText {
+	FONT: 8pt Verdana,Arial,Helvetica,sans-serif; COLOR: #808080
+}
+.box {
+	
+}
+.personalCalendar {
+	BORDER-RIGHT: #ebe1e1 1px solid; BORDER-LEFT: #ebe1e1 1px solid; BORDER-BOTTOM: #ebe1e1 1px solid; BORDER-COLLAPSE: collapse
+}
+.homePageSidebarTitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 8pt; BACKGROUND: #dad3d2
+}
+.warnReg {
+	FONT-SIZE: 8pt; COLOR: #4c4c4c; FONT-STYLE: normal
+}
+.warnTitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 11pt
+}
+.warningBox {
+	MARGIN: 0px 0px 10px
+}
+.confirmBoxPageTop {
+	MARGIN: 7px 0px 10px
+}
+.warning_corner_NE {
+	BACKGROUND: url(images/warning_corner_NE.gif) no-repeat; WIDTH: 5px; HEIGHT: 5px
+}
+.warning_corner_NW {
+	BACKGROUND: url(images/warning_corner_NW.gif) no-repeat; WIDTH: 5px; HEIGHT: 5px
+}
+.warning_corner_SE {
+	BACKGROUND: url(images/warning_corner_SE.gif) no-repeat; WIDTH: 5px; HEIGHT: 5px
+}
+.warning_corner_SW {
+	BACKGROUND: url(images/warning_corner_SW.gif) no-repeat; WIDTH: 5px; HEIGHT: 5px
+}
+.warning_body_tall {
+	BORDER-RIGHT: #fede58 1px solid; PADDING-RIGHT: 3px; PADDING-LEFT: 3px; BACKGROUND: url(images/warning_bkgnd.gif) #fdecaf repeat-x 50% top; PADDING-BOTTOM: 0px; VERTICAL-ALIGN: top; BORDER-LEFT: #fede58 1px solid; PADDING-TOP: 0px; HEIGHT: 50px
+}
+.warning_body_short {
+	BORDER-RIGHT: #fede58 1px solid; PADDING-RIGHT: 3px; PADDING-LEFT: 3px; BACKGROUND: url(images/warning_bkgnd_short.gif) #fdecaf repeat-x 50% top; PADDING-BOTTOM: 0px; VERTICAL-ALIGN: top; BORDER-LEFT: #fede58 1px solid; PADDING-TOP: 0px; HEIGHT: 12px
+}
+.warning_bottomedge {
+	BACKGROUND: url(images/warning_bottomborder.gif) repeat-x; WIDTH: 100%; HEIGHT: 5px
+}
+.warning_topedge {
+	BACKGROUND: url(images/warning_topborder.gif) repeat-x; WIDTH: 100%; HEIGHT: 5px
+}
